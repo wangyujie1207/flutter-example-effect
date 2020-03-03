@@ -21,7 +21,7 @@ class _FluroPageState extends State<FluroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(title: Text("Fluro Text"),),
       body: Center(
         child: Text("我是传递的参数:${transCode()}"),
