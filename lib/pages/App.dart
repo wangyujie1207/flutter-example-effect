@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example_effect/Dao/wanandroid_dao.dart';
 import 'package:flutter_example_effect/pages/Effect/effect.dart';
 import 'package:flutter_example_effect/pages/Home/home.dart';
 import 'package:flutter_example_effect/pages/Project/project.dart';
@@ -30,6 +31,8 @@ class _AppPageState extends State<AppPage> {
     ),
   ];
 
+
+
   @override
   void initState() {
     super.initState();
@@ -57,6 +60,7 @@ class _AppPageState extends State<AppPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         children: [
           HomePage(),
           EffectPage(),

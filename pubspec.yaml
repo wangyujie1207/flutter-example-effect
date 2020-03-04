@@ -26,6 +26,8 @@ dependencies:
   fluro: ^1.5.2
   rxdart: ^0.23.1
   dio: ^3.0.9
+  flutter_easyrefresh: ^2.0.9
+  flutter_spinkit: ^4.1.2
 
 dev_dependencies:
   flutter_test:

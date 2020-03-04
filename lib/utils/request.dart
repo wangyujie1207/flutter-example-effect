@@ -23,7 +23,7 @@ class HttpRequest {
   }
 
   //get请求
-  Future get(String path,
+  Future<Response> get(String path,
       {queryParameters, Options options, CancelToken cancelToken}) async {
     return await dio.get(path,
         queryParameters: queryParameters,
