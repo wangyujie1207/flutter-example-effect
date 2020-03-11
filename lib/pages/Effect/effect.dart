@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example_effect/Widgets/common_button.dart';
+import 'package:flutter_example_effect/pages/Slivers/index.dart';
 import 'package:flutter_example_effect/pages/TabEffect/tab_page.dart';
 
 class EffectPage extends StatelessWidget {
@@ -10,18 +12,18 @@ class EffectPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-            child: RaisedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                        builder: (ctx) => TabPage()));
-              },
-              child: Text("tab切换"),
-            ),
-          )
+          CommonButton(title: "无限tab + easyRefresh",onPressed: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (ctx) => TabPage()));
+          },),
+          CommonButton(title: "sliver 全家桶", onPressed: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (ctx) => SliversPage()));
+          },)
         ],
       ),
     );
