@@ -7,6 +7,7 @@ import 'package:flutter_example_effect/pages/Slivers/sliver_snap.dart';
 import 'package:flutter_example_effect/pages/Slivers/sliver_sticky.dart';
 
 import 'custom_sliver_header_usage.dart';
+import 'custom_sticky.dart';
 
 class SliversPage extends StatelessWidget {
   @override
@@ -50,6 +51,11 @@ class SliversPage extends StatelessWidget {
                 context,
                 MaterialPageRoute<void>(
                     builder: (ctx) => CustomSliverHeaderDemo()));
+          },),CommonButton(title: "Sliver - custom_sticky", onPressed: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (ctx) => CustomSticky()));
           },),
         ],
       ),
