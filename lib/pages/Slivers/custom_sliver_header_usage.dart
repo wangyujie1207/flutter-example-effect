@@ -17,6 +17,7 @@ class CustomSliverHeaderDemo extends StatelessWidget {
                 coverImgUrl: 'https://img.zcool.cn/community/01c6615d3ae047a8012187f447cfef.jpg@1280w_1l_2o_100sh.jpg'
             ),
           ),
+          // SliverToBoxAdapter
           SliverFillRemaining(
             child: FilmContent(),
           )

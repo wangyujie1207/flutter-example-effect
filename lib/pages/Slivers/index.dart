@@ -16,47 +16,59 @@ class SliversPage extends StatelessWidget {
       appBar: AppBar(title: Text("slivers")),
       body: ListView(
         children: <Widget>[
-          CommonButton(title: "Sliver - List和Grid混合使用", onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                    builder: (ctx) => SliverListAndGrid()));
-          },),
-          CommonButton(title: "Sliver - float", onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                    builder: (ctx) => SliverFloat()));
-          },),
-          CommonButton(title: "Sliver - snap", onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                    builder: (ctx) => SliverSnap()));
-          },),
-          CommonButton(title: "Sliver - pinned", onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                    builder: (ctx) => SliverPinned()));
-          },),
-          CommonButton(title: "Sliver - sticky", onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                    builder: (ctx) => SliverSticky()));
-          },),
-          CommonButton(title: "Sliver - 自定义效果", onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                    builder: (ctx) => CustomSliverHeaderDemo()));
-          },),CommonButton(title: "Sliver - custom_sticky", onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                    builder: (ctx) => CustomSticky()));
-          },),
+          CommonButton(
+            title: "Sliver - List和Grid混合使用",
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                      builder: (ctx) => SliverListAndGrid()));
+            },
+          ),
+          CommonButton(
+            title: "Sliver - float",
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (ctx) => SliverFloat()));
+            },
+          ),
+          CommonButton(
+            title: "Sliver - snap",
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (ctx) => SliverSnap()));
+            },
+          ),
+          CommonButton(
+            title: "Sliver - pinned",
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (ctx) => SliverPinned()));
+            },
+          ),
+          CommonButton(
+            title: "Sliver - sticky",
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (ctx) => SliverSticky()));
+            },
+          ),
+          CommonButton(
+            title: "Sliver - 自定义效果",
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                      builder: (ctx) => CustomSliverHeaderDemo()));
+            },
+          ),
+          CommonButton(
+            title: "Sliver - custom_sticky",
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (ctx) => CustomSticky()));
+            },
+          ),
         ],
       ),
     );

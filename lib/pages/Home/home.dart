@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example_effect/Widgets/common_button.dart';
 import '../../routers/application.dart';
 import 'package:fluro/fluro.dart';
 import 'dart:convert';
+
+import 'UI/index.dart';
+import 'animate/index.dart';
 
 class HomePage extends StatelessWidget {
   Map mapValue = {
@@ -18,50 +22,53 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           //fluro跳转
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 5,horizontal: 20),
-            child: RaisedButton(
-              onPressed: () {
-                // 如果传递参数为map需要转为String,在接收页面String转为Map
-                String jsonString = json.encode(mapValue);
-                var val = jsonEncode(Utf8Encoder().convert(jsonString));
+          CommonButton(
+            title: "fluro 自定义动画",
+            onPressed: () {
+              // 如果传递参数为map需要转为String,在接收页面String转为Map
+              String jsonString = json.encode(mapValue);
+              var val = jsonEncode(Utf8Encoder().convert(jsonString));
 
-                /// 使用一个自定义custom:
-                /// Flutter API提供的关于AnimatedWidget的示例包括：AnimatedBuilder、AnimatedModalBarrier、DecoratedBoxTransition、FadeTransition、
-                /// PositionedTransition、RelativePositionedTransition、RotationTransition、ScaleTransition、SizeTransition、SlideTransition
-                /// Created by wangyujie
-                /// Date: 2020/2/27
-                Application.router.navigateTo(
-                  context,
-                  "/fluroTest?message=$val",
-                  transition: TransitionType.custom,
-                  transitionBuilder: (
-                    BuildContext context,
-                    Animation<double> animation,
-                    Animation<double> secondaryAnimation,
-                    Widget child,
-                  ) =>
-                      Align(
-                    child: SizeTransition(
-                      sizeFactor: animation,
-                      child: child,
-                    ),
+              /// 使用一个自定义custom:
+              /// Flutter API提供的关于AnimatedWidget的示例包括：AnimatedBuilder、AnimatedModalBarrier、DecoratedBoxTransition、FadeTransition、
+              /// PositionedTransition、RelativePositionedTransition、RotationTransition、ScaleTransition、SizeTransition、SlideTransition
+              /// Created by wangyujie
+              /// Date: 2020/2/27
+              Application.router.navigateTo(
+                context,
+                "/fluroTest?message=$val",
+                transition: TransitionType.custom,
+                transitionBuilder: (
+                  BuildContext context,
+                  Animation<double> animation,
+                  Animation<double> secondaryAnimation,
+                  Widget child,
+                ) =>
+                    Align(
+                  child: SizeTransition(
+                    sizeFactor: animation,
+                    child: child,
                   ),
-                );
-              },
-              child: Text("fluro自定义动画跳转"),
-            ),
+                ),
+              );
+            },
           ),
           //bloc测试
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 5,horizontal: 20),
-            child: RaisedButton(
-              onPressed: () {
-                Application.router.navigateTo(context, "/blocTestPage", transition: TransitionType.native);
-              },
-              child: Text("bloc 测试"),
-            ),
+          CommonButton(
+            title: "bloc 测试",
+            onPressed: () {
+              Application.router.navigateTo(context, "/blocTestPage",
+                  transition: TransitionType.native);
+            },
           ),
+          //基础UI
+          CommonButton(title: "基础UI",onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (ctx) => BasicWidgetsDemo()));
+          },),
+          //动画demo
+          CommonButton(title: "动画demo练习",onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (ctx) => AnimateDemo()));
+          },),
         ],
       ),
     );
