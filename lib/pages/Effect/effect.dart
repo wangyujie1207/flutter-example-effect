@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example_effect/Widgets/common_button.dart';
+import 'package:flutter_example_effect/pages/Effect/ui_demo.dart';
 import 'package:flutter_example_effect/pages/Slivers/index.dart';
 import 'package:flutter_example_effect/pages/TabEffect/tab_page.dart';
 
@@ -23,7 +24,13 @@ class EffectPage extends StatelessWidget {
                 context,
                 MaterialPageRoute<void>(
                     builder: (ctx) => SliversPage()));
-          },)
+          },),
+          CommonButton(title: "UI效果", onPressed: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (ctx) => UIDemo()));
+          },),
         ],
       ),
     );

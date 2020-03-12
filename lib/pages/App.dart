@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example_effect/Dao/wanandroid_dao.dart';
 import 'package:flutter_example_effect/pages/Effect/effect.dart';
 import 'package:flutter_example_effect/pages/Home/home.dart';
+import 'package:flutter_example_effect/pages/Native/native.dart';
 import 'package:flutter_example_effect/pages/Project/project.dart';
 
 /// 主页面导航
@@ -19,15 +19,19 @@ class _AppPageState extends State<AppPage> {
   final List<BottomNavigationBarItem> _bottomTabs = <BottomNavigationBarItem>[
     BottomNavigationBarItem(
       icon: Icon(Icons.home),
-      title: Text("首页"),
+      title: Text("home"),
     ),
     BottomNavigationBarItem(
       icon: Icon(Icons.airplanemode_active),
-      title: Text("效果"),
+      title: Text("effect"),
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.contact_phone),
+      title: Text("native"),
     ),
     BottomNavigationBarItem(
       icon: Icon(Icons.apps),
-      title: Text("项目"),
+      title: Text("project"),
     ),
   ];
 
@@ -64,6 +68,7 @@ class _AppPageState extends State<AppPage> {
         children: [
           HomePage(),
           EffectPage(),
+          NativePage(),
           ProjectPage(),
         ],
         controller: _pageController,
