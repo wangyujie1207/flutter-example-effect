@@ -6,7 +6,6 @@ import '../UI/list_model.dart';
 import '../UI/task.dart';
 import '../UI/task_row.dart';
 
-
 class MenuTestView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,9 +27,9 @@ class MainPageState extends State<MainPage> {
   bool showOnlyCompleted = false;
   ListModel listModel;
   Drawer drawer = new Drawer();
-  final GlobalKey<ScaffoldState> _scaffoldKey = new
-  GlobalKey<ScaffoldState>();
-  final GlobalKey<AnimatedListState> _listKey = new GlobalKey<AnimatedListState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<AnimatedListState> _listKey =
+      new GlobalKey<AnimatedListState>();
   List<Task> tasks = [
     new Task(
         name: "Catch up with Brian",
@@ -93,18 +92,20 @@ class MainPageState extends State<MainPage> {
       drawer: new Drawer(),
     );
   }
-  Widget _buildFab(){
+
+  Widget _buildFab() {
     return new Positioned(
-      top: _imageHeight-100.0,
+      top: _imageHeight - 100.0,
       right: -40.0,
       child: new AnimatedFab(
         onClick: _changeFilterState,
       ),
     );
   }
-  _changeFilterState(){
+
+  _changeFilterState() {
     showOnlyCompleted = !showOnlyCompleted;
-    tasks.where((task)=>!task.completed).forEach((task){
+    tasks.where((task) => !task.completed).forEach((task) {
       if (showOnlyCompleted) {
         listModel.removeAt(listModel.indexOf(task));
       } else {
@@ -112,6 +113,7 @@ class MainPageState extends State<MainPage> {
       }
     });
   }
+
   Widget _buildIamge() {
     return new ClipPath(
       clipper: new ChippedImage(),
@@ -124,12 +126,13 @@ class MainPageState extends State<MainPage> {
       ),
     );
   }
-  Widget _buildTasksList(){
+
+  Widget _buildTasksList() {
     return new Expanded(
       child: new AnimatedList(
         initialItemCount: tasks.length,
         key: _listKey,
-        itemBuilder: (context,index,animation){
+        itemBuilder: (context, index, animation) {
           return new TextRow(
             task: listModel[index],
             animation: animation,
@@ -138,6 +141,7 @@ class MainPageState extends State<MainPage> {
       ),
     );
   }
+
   Widget _buildHeader() {
     return new Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 40.0),
@@ -145,7 +149,7 @@ class MainPageState extends State<MainPage> {
         children: <Widget>[
           new GestureDetector(
             child: new Icon(Icons.menu, size: 32.0, color: Colors.white),
-            onTap: (){
+            onTap: () {
               _scaffoldKey.currentState.openDrawer();
             },
           ),

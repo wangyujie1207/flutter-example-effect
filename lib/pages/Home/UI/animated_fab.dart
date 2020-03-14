@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+
 class AnimatedFab extends StatefulWidget {
   final VoidCallback onClick;
 
@@ -17,6 +18,7 @@ class AnimatedFabState extends State<AnimatedFab>
   AnimationController controller;
   final double expandedSize = 180.0;
   final hiddenSize = 20.0;
+
   @override
   void initState() {
     super.initState();
@@ -25,7 +27,6 @@ class AnimatedFabState extends State<AnimatedFab>
     animation = new ColorTween(begin: Colors.pink, end: Colors.pink[800])
         .animate(controller);
   }
-
 
   @override
   void dispose() {
@@ -44,14 +45,15 @@ class AnimatedFabState extends State<AnimatedFab>
             alignment: Alignment.center,
             children: <Widget>[
               _buildExpandedBackground(),
-              _buildOption(Icons.check_circle,0.0),
-              _buildOption(Icons.flash_on,-pi/3),
-              _buildOption(Icons.error_outline,-2*pi/3),
-              _buildOption(Icons.access_time,pi),
+              _buildOption(Icons.check_circle, 0.0),
+              _buildOption(Icons.flash_on, -pi / 3),
+              _buildOption(Icons.error_outline, -2 * pi / 3),
+              _buildOption(Icons.access_time, pi),
               _buildFabCore(),
             ],
           );
-        }, animation: controller,
+        },
+        animation: controller,
       ),
     );
   }
@@ -78,7 +80,7 @@ class AnimatedFabState extends State<AnimatedFab>
       child: new Align(
         alignment: Alignment.topCenter,
         child: new Padding(
-          padding: EdgeInsets.only(top:8.0),
+          padding: EdgeInsets.only(top: 8.0),
           child: new IconButton(
             onPressed: _onIconClick,
             icon: new Transform.rotate(
@@ -93,15 +95,16 @@ class AnimatedFabState extends State<AnimatedFab>
       ),
     );
   }
-  Widget _buildFabCore(){
+
+  Widget _buildFabCore() {
     double scaleFactor = 2 * (controller.value - 0.5).abs();
     return new FloatingActionButton(
       onPressed: _onFabTap,
       child: new Transform(
         alignment: Alignment.center,
-        transform: new Matrix4.identity()..scale(1.0,scaleFactor),
+        transform: new Matrix4.identity()..scale(1.0, scaleFactor),
         child: new Icon(
-          controller.value > 0.5?Icons.close: Icons.filter_list,
+          controller.value > 0.5 ? Icons.close : Icons.filter_list,
           color: Colors.white,
           size: 26.0,
         ),
@@ -109,6 +112,7 @@ class AnimatedFabState extends State<AnimatedFab>
       backgroundColor: animation.value,
     );
   }
+
   open() {
     if (controller.isDismissed) {
       controller.forward();
