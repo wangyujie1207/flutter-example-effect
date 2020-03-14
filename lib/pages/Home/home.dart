@@ -6,6 +6,7 @@ import 'dart:convert';
 
 import 'UI/index.dart';
 import 'animate/index.dart';
+import 'animate2/index.dart';
 
 class HomePage extends StatelessWidget {
   Map mapValue = {
@@ -68,6 +69,9 @@ class HomePage extends StatelessWidget {
           //动画demo
           CommonButton(title: "动画demo练习",onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (ctx) => AnimateDemo()));
+          },),
+          CommonButton(title: "动画demo练习2",onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (ctx) => AnimateDemo2()));
           },),
         ],
       ),
